@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
+    <meta content="date=no" name="format-detection">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <title>성공회대학교 모의수강신청시스템</title>
+    <link href="./resources/css/ui.css" rel="stylesheet" type="text/css">
+    <link href="./resources/css/jqgrid.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./resources/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./resources/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="main">
+    <div class="wrap-loader hidden"><span class="loading-helper"></span>
+        <div class="loader"></div>
+        <div class="loading-text">Loading</div>
+    </div>
+    <span class="to-top" style="display: none;"></span>
+    <header>
+        <div class="wrap-header">
+            <div class="is-left" onclick="location.href='./sugangsinchung.html'" style="cursor:pointer;"
+                title="홈(Home)">
+                <span>모의수강신청</span>
+            </div>
+            <div class="is-right" style="display: block;">
+                <ul class="nav-menu">
+                    <li>
+                        <span class="main-menu" onclick="location.href='./sugangsinchung.html'">수강신청</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice1')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/sugangSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="main-menu" onclick="alert('현재 페이지가 수강바구니탭에서 버튼클릭시 접속되는 페이지입니다.')">수강바구니</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice2')">신청</li>
+                                <li onclick="fnMenuLoad('/basket/basketSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">제한수업</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice3')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/limitSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">대체과목 재수강</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreValid?pScheGb=0214')">신청</li>
+                                <!-- <li onclick="fnMenuLoad('/core/coreNotice5')">신청</li> -->
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">수강철회</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice4')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/withdrawSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="user-info">
+
+                    <div><span class="is-id">202314000</span><span>홍길동</span><br>
+                        <span>공학계 IT융합자율학부</span>
+                        <span>1학년</span>
+                    </div>
+                    <button type="button" class="btn-sub" id="btn" onclick="location.href='./index.html'">로그아웃</button>
+                </div>
+            </div>
+            <div class="m-menu"></div>
+        </div>
+    </header>
+    <main class="s-contents" id="s-contents">
+        <div>
+            <!-- 수강신청 안내 내용들 들어있는 박스 -->
+            <!-- 여기부터 실제 코드 -->
+            <div>
+                <h1 class="is-title">2023년 1학기 학부 수강바구니 신청</h1>
+                <div class="sw-header">
+                    <h1>기본정보</h1>
+                </div>
+                <div class="wrap-content">
+                    <table class="tbl-detail">
+                        <colgroup>
+                            <col width="90px">
+                            <col>
+                            <col width="90px">
+                            <col>
+                            <col width="90px">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>학번</th>
+                                <td>202214000</td>
+                                <th>성명</th>
+                                <td>홍길동</td>
+                                <th>학적상태</th>
+                                <td>재학</td>
+                            </tr>
+
+                            <tr>
+                                <th>소속</th>
+                                <td>IT융합자율학부</td>
+                                <th>학년이수학기</th>
+                                <td>2학년(3학기)</td>
+                                <th>과정구분</th>
+                                <td>학부과정</td>
+                            </tr>
+                            <tr>
+                                <th>신청전공</th>
+                                <td colspan="5">IT융합자율학부</td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sw-header mt-20">
+                    <h1>학점정보</h1>
+                </div>
+                <div class="wrap-content">
+                    <table class="tbl-detail">
+                        <colgroup>
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="20%">
+                            <col width="10%">
+                            <col width="20%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>직전학기 평점/취득</th>
+                                <th>학점세이브</th>
+                                <th>선신청 학점</th>
+                                <th>신청가능 학점</th>
+                                <th>신청학점</th>
+                                <th>수강 예정 학점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="alignC">4.39 / 40</td>
+                                <td class="alignC">1</td>
+                                <td class="alignC">0</td>
+                                <td class="alignC"><span style="font-size:11px">(기본 + 성적우수 +<br>
+                                        학점세이브 - 선신청)=신청가능</span><br>
+                                    <b>(19 + 3 + 1 - 0) = 23</b></td>
+                                <td class="alignC"><span id="PNT_SUM">0</span></td>
+                                <td class="alignC"><span style="font-size:11px">(기존 총취득 학점 + 선신청학점 +<br>
+                                        신청학점)=총 취득 예상 학점</span><br>
+                                    <b id="PNT_TOT">(40 + 0 + 0) = 40</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sw-header mt-20">
+                    <h1>수강바구니신청 내역 <small>【 신청과목수 : <span style="color: #f76700;" id="CNT">0</span>건 】</small></h1>
+                </div>
+                <div class="wrap-content">
+                    <div class="wrap-grid">
+                        <div class="ui-jqgrid ui-widget ui-widget-content ui-corner-all" id="gbox_GridBasket" dir="ltr"
+                            style="width: 1160px;">
+                            <div class="ui-widget-overlay jqgrid-overlay" id="lui_GridBasket"></div>
+                            <div class="loading ui-state-default ui-state-active" id="load_GridBasket"
+                                style="display: none;">Loading ...</div>
+                            <div class="ui-jqgrid-view" role="grid" id="gview_GridBasket" style="width: 1160px;">
+                                <div class="ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix"
+                                    style="display: none;"><a role="link"
+                                        class="ui-jqgrid-titlebar-close ui-corner-all HeaderButton"
+                                        style="right: 0px;"><span
+                                            class="ui-icon ui-icon-circle-triangle-n"></span></a><span
+                                        class="ui-jqgrid-title"></span></div>
+                                <div class="ui-state-default ui-jqgrid-hdiv ui-corner-top" style="width: 1160px;">
+                                    <div class="ui-jqgrid-hbox">
+                                        <table class="ui-jqgrid-htable ui-common-table" style="width: 1160px;"
+                                            role="presentation" aria-labelledby="gbox_GridBasket">
+                                            <thead>
+                                                <tr class="ui-jqgrid-labels" role="row">
+                                                    <th id="GridBasket_mode" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 92px;">
+                                                        <div id="jqgh_GridBasket_mode" class="ui-jqgrid-sortable">
+                                                            삭제<span class="s-ico" style="display:none"><span sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_lec_info" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 244px;">
+                                                        <div id="jqgh_GridBasket_lec_info" class="ui-jqgrid-sortable">
+                                                            과목정보<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_map_mj" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 153px;">
+                                                        <div id="jqgh_GridBasket_map_mj" class="ui-jqgrid-sortable">
+                                                            전공/이수구분<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_pnt" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 46px;">
+                                                        <div id="jqgh_GridBasket_pnt" class="ui-jqgrid-sortable">학점<span
+                                                                class="s-ico" style="display:none"><span sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_pesn_nm" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 92px;">
+                                                        <div id="jqgh_GridBasket_pesn_nm" class="ui-jqgrid-sortable">
+                                                            대표교수<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_ability" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 92px;">
+                                                        <div id="jqgh_GridBasket_ability" class="ui-jqgrid-sortable">
+                                                            핵심역량<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_ability_detail" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 92px;">
+                                                        <div id="jqgh_GridBasket_ability_detail"
+                                                            class="ui-jqgrid-sortable">세부영역<span class="s-ico"
+                                                                style="display:none"><span sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_tita" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 153px;">
+                                                        <div id="jqgh_GridBasket_tita" class="ui-jqgrid-sortable">
+                                                            강의시간<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_repeats" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 151px;">
+                                                        <div id="jqgh_GridBasket_repeats" class="ui-jqgrid-sortable">
+                                                            재수강신청<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_atnlc_id" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_atnlc_id" class="ui-jqgrid-sortable">
+                                                            atnlc_id<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_course_cd" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_course_cd" class="ui-jqgrid-sortable">
+                                                            course_cd<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_clas" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_clas" class="ui-jqgrid-sortable">
+                                                            clas<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_hp" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_hp" class="ui-jqgrid-sortable">hp<span
+                                                                class="s-ico" style="display:none"><span sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_copl_gbcd" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_copl_gbcd" class="ui-jqgrid-sortable">
+                                                            copl_gbcd<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_course_nm" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_course_nm" class="ui-jqgrid-sortable">
+                                                            course_nm<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_note" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_note" class="ui-jqgrid-sortable">
+                                                            note<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                    <th id="GridBasket_code" role="columnheader"
+                                                        class="ui-state-default ui-th-column ui-th-ltr"
+                                                        style="width: 150px; display: none;">
+                                                        <div id="jqgh_GridBasket_code" class="ui-jqgrid-sortable">
+                                                            code<span class="s-ico" style="display:none"><span
+                                                                    sort="asc"
+                                                                    class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                    sort="desc"
+                                                                    class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="ui-jqgrid-bdiv" style="height: auto; width: 1160px;">
+                                    <div style="position:relative;">
+                                        <div class="nodata active">신청정보가 없습니다.</div>
+                                        <table id="GridBasket" tabindex="0" cellspacing="0" cellpadding="0",border="0",role="presentation" aria-multiselectable="false"
+                                            aria-labelledby="gbox_GridBasket" class="ui-jqgrid-btable"
+                                            style="width: 1160px;">
+                                            <tbody>
+                                                <tr class="jqgfirstrow" role="row" style="height:auto">
+                                                    <td role="gridcell" style="height: 0px; width: 92px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 244px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 153px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 46px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 92px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 92px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 92px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 153px;"></td>
+                                                    <td role="gridcell" style="height: 0px; width: 151px;"></td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                    <td role="gridcell" style="height:0px;width:150px;display:none;">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-jqgrid-resize-mark" id="rs_mGridBasket">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sw-tabs mt-20" id="sTabs">
+                    <li data-id="tab_01" class="is-active">개설과목 조회/신청</li>
+
+                </ul>
+                <div class="sw-tab-contents" id="tab">
+                    <div id="tab_01" class="is-active">
+                        <div class="info-box">
+                            <p>① 조회조건을 1개이상 설정 후 조회 가능합니다.</p>
+                            <p>② 과목 옆에 표시되는 전공/이수구분은 성적취득 시 실제로 취득되는 전공정보와 이수구분이 나타납니다.</p>
+                            <p>③ 전필, 전선, 전탐의 경우 본인의 신청전공 및 수업학년에 해당하는 과목만 조회가능합니다.</p>
+                        </div>
+                        <form name="sForm" id="sForm" method="post" onsubmit="return false">
+                            <div class="form-search">
+                                <div>
+                                    <div>
+                                        <select name="pSosocCd" id="pSosocCd">
+                                            <option value="">전체</option>
+
+                                            <option value="U080000">학부 열림교양대학</option>
+
+                                            <option value="UCE0000">혁신융합계열 국제문화전공</option>
+
+                                            <option value="UD00000">사회계 미디어콘텐츠융합자율학부</option>
+
+                                            <option value="UDA0000">미디어콘텐츠융합자율학부 디지털콘텐츠전공</option>
+
+                                            <option value="UDB0000">미디어콘텐츠융합자율학부 신문방송학전공</option>
+
+                                            <option value="UH00000">인문계 인문융합자율학부</option>
+
+                                            <option value="UHB0000">인문융합자율학부 기독교문화전공</option>
+
+                                            <option value="UHC0000">인문융합자율학부 영어학전공</option>
+
+                                            <option value="UHD0000">인문융합자율학부 일어일본학전공</option>
+
+                                            <option value="UHE0000">인문융합자율학부 중어중국학전공</option>
+
+                                            <option value="UI00000">공학계 IT융합자율학부</option>
+
+                                            <option value="UIB0000">IT융합자율학부 컴퓨터공학전공</option>
+
+                                            <option value="UIC0000">IT융합자율학부 소프트웨어공학전공</option>
+
+                                            <option value="UID0000">IT융합자율학부 정보통신공학전공</option>
+
+                                            <option value="UIF0000">IT융합자율학부 인공지능전공</option>
+
+                                            <option value="US00000">사회계 사회융합자율학부</option>
+
+                                            <option value="USB0000">사회융합자율학부 사회복지학전공</option>
+
+                                            <option value="USC0000">사회융합자율학부 사회학전공</option>
+
+                                            <option value="USD0000">사회융합자율학부 경제학전공</option>
+
+                                            <option value="USE0000">사회융합자율학부 정치학전공</option>
+
+                                            <option value="USH0000">사회융합자율학부 경영학전공</option>
+
+                                        </select>
+                                        <label class="is-label">과목명/과목코드/교원명</label>
+                                        <input type="text" name="pSearchNm" id="pSearchNm" maxlength="30">
+                                    </div>
+                                    <div class="is-full">
+                                        <label class="is-label">이수구분</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0221" id="chk1_01"><label
+                                            for="chk1_01">전필</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0222" id="chk1_02"><label
+                                            for="chk1_02">전선</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0223" id="chk1_03"><label
+                                            for="chk1_03">전탐</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0210" id="chk1_04"><label
+                                            for="chk1_04">교필</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0213" id="chk1_05"><label
+                                            for="chk1_05">교선</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0271" id="chk1_06"><label
+                                            for="chk1_06">평교</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0261" id="chk1_07"><label
+                                            for="chk1_07">복필</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0262" id="chk1_08"><label
+                                            for="chk1_08">복선</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0251" id="chk1_09"><label
+                                            for="chk1_09">부필</label>
+                                        <input type="checkbox" name="pIsuGb" value="D0252" id="chk1_10"><label
+                                            for="chk1_10">부선</label>
+                                    </div>
+                                    <div>
+                                        <label class="is-label">학점</label>
+                                        <input type="checkbox" name="pPnt" value="0" id="chk2_00"><label
+                                            for="chk2_00">0</label>
+                                        <input type="checkbox" name="pPnt" value="1" id="chk2_01" checked><label
+                                            for="chk2_01">1</label>
+                                        <input type="checkbox" name="pPnt" value="2" id="chk2_02" checked><label
+                                            for="chk2_02">2</label>
+                                        <input type="checkbox" name="pPnt" value="3" id="chk2_03" checked><label
+                                            for="chk2_03">3</label>
+                                        <input type="checkbox" name="pPnt" value="4" id="chk2_04"><label
+                                            for="chk2_04">4</label>
+                                        <input type="checkbox" name="pPnt" value="5" id="chk2_05"><label
+                                            for="chk2_05">5</label>
+                                        <input type="checkbox" name="pPnt" value="6" id="chk2_06"><label
+                                            for="chk2_06">6</label>
+                                    </div>
+                                    <div>
+                                        <label class="is-label">요일</label>
+                                        <input type="checkbox" name="pDay" value="2" id="chk3_01"><label
+                                            for="chk3_01">월</label>
+                                        <input type="checkbox" name="pDay" value="3" id="chk3_02"><label
+                                            for="chk3_02">화</label>
+                                        <input type="checkbox" name="pDay" value="4" id="chk3_03"><label
+                                            for="chk3_03">수</label>
+                                        <input type="checkbox" name="pDay" value="5" id="chk3_04"><label
+                                            for="chk3_04">목</label>
+                                        <input type="checkbox" name="pDay" value="6" id="chk3_05"><label
+                                            for="chk3_05">금</label>
+                                        <input type="checkbox" name="pDay" value="7" id="chk3_06"><label
+                                            for="chk3_06">토</label>
+                                    </div>
+                                    <div>
+                                        <label class="is-label">영역</label>
+                                        <input type="checkbox" name="pArea" value="5" id="chk4_01"><label
+                                            for="chk4_01">교양인문</label>
+                                        <input type="checkbox" name="pArea" value="7" id="chk4_02"><label
+                                            for="chk4_02">교선자연</label>
+                                        <input type="checkbox" name="pArea" value="4" id="chk4_03"><label
+                                            for="chk4_03">교선사회</label>
+                                        <input type="checkbox" name="pArea" value="19" id="chk4_04"><label
+                                            for="chk4_04">해외교환</label>
+                                        <input type="checkbox" name="pArea" value="20" id="chk4_05"><label
+                                            for="chk4_05">해외창영역</label>
+                                        <input type="checkbox" name="pArea" value="14" id="chk4_08"><label
+                                            for="chk4_08">문화기획</label>
+                                        <input type="checkbox" name="pArea" value="15" id="chk4_09"><label
+                                            for="chk4_09">NGO 연계전공</label>
+                                    </div>
+
+
+                                    <div>
+                                        <label class="is-label">역량</label>
+                                        <div>가치역량 【
+                                            <input type="checkbox" name="pAbility" value="10" id="chk5_01"><label
+                                                for="chk5_01">인간인권</label>
+                                            <input type="checkbox" name="pAbility" value="20" id="chk5_02"><label
+                                                for="chk5_02">생명평화</label>
+                                            <input type="checkbox" name="pAbility" value="30" id="chk5_03"><label
+                                                for="chk5_03">민주시민</label> 】</div>
+                                        <div style="min-width:350px;">대안역량 【
+                                            <input type="checkbox" name="pAbility" value="60" id="chk5_04"><label
+                                                for="chk5_04">융복합적사고</label>
+                                            <input type="checkbox" name="pAbility" value="70" id="chk5_05"><label
+                                                for="chk5_05">조사분석정보활용</label>
+                                            <input type="checkbox" name="pAbility" value="80" id="chk5_06"><label
+                                                for="chk5_06">대안제시문제해결</label> 】</div>
+                                        <div>실천역량 【
+                                            <input type="checkbox" name="pAbility" value="40" id="chk5_07"><label
+                                                for="chk5_07">민주적소통</label>
+                                            <input type="checkbox" name="pAbility" value="50" id="chk5_08"><label
+                                                for="chk5_08">연대와공동제적실천</label> 】</div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="is-btn">
+                                    <button id="btnReset" onclick="location.href='./test.html'">초기화</button>
+                                    <button id="btnSearch" class="btn-sub" onclick="location.href='./test2.html'">조회</button>
+                                </div>
+                            </div>
+                            <div id="warMsg" style="text-align:center;font-weight:bold;color:red"></div>
+                        </form>
+                        <!-- <p class="info-txt">조회시각 : <span id="timestamp"></span></p> -->
+                        <div class="sw-header mt-20">
+                            <h1>개설과목 내역 <small>【 <span style="color: #f76700;" id="CNT_LEC">0</span>건 】</small></h1>
+                            <span class="info-txt">조회시각 : <span id="timestamp">2023-02-02 21:27:01:460</span></span>
+                        </div>
+                        <div class="wrap-content">
+                            <div class="wrap-grid">
+                                <div class="ui-jqgrid ui-widget ui-widget-content ui-corner-all" id="gbox_GridLecture"
+                                    dir="ltr" style="width: 1160px;">
+                                    <div class="ui-widget-overlay jqgrid-overlay" id="lui_GridLecture"></div>
+                                    <div class="loading ui-state-default ui-state-active" id="load_GridLecture"
+                                        style="display: none;">Loading ...</div>
+                                    <!--그리드 뷰 여기부터 검색내용 불러오는 부분-->
+                                    <div class="ui-jqgrid-view" role="grid" id="gview_GridLecture"
+                                        style="width: 1160px;">
+                                        <div class="ui-jqgrid-titlebar ui-jqgrid-caption ui-widget-header ui-corner-top ui-helper-clearfix"
+                                            style="display: none;"><a role="link"
+                                                class="ui-jqgrid-titlebar-close ui-corner-all HeaderButton"
+                                                style="right: 0px;"><span
+                                                    class="ui-icon ui-icon-circle-triangle-n"></span></a><span
+                                                class="ui-jqgrid-title"></span></div>
+                                        <div class="ui-state-default ui-jqgrid-hdiv ui-corner-top"
+                                            style="width: 1160px;">
+                                            <div class="ui-jqgrid-hbox">
+                                                <table class="ui-jqgrid-htable ui-common-table" style="width: 1159px;"
+                                                    role="presentation" aria-labelledby="gbox_GridLecture">
+                                                    <thead>
+                                                        <tr class="ui-jqgrid-labels" role="row">
+                                                            <th id="GridLecture_mode" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 127px;">
+                                                                <div id="jqgh_GridLecture_mode"
+                                                                    class="ui-jqgrid-sortable">신청<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_lec_info" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 340px;">
+                                                                <div id="jqgh_GridLecture_lec_info"
+                                                                    class="ui-jqgrid-sortable">과목정보<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_map_mj" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 127px;">
+                                                                <div id="jqgh_GridLecture_map_mj"
+                                                                    class="ui-jqgrid-sortable">전공/이수구분<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_pnt" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 64px;">
+                                                                <div id="jqgh_GridLecture_pnt"
+                                                                    class="ui-jqgrid-sortable">학점<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_pesn_nm" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 127px;">
+                                                                <div id="jqgh_GridLecture_pesn_nm"
+                                                                    class="ui-jqgrid-sortable">대표교수<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_tita" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 212px;">
+                                                                <div id="jqgh_GridLecture_tita"
+                                                                    class="ui-jqgrid-sortable">강의시간<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_inwon" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 127px;">
+                                                                <div id="jqgh_GridLecture_inwon"
+                                                                    class="ui-jqgrid-sortable">정원<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_year" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_year"
+                                                                    class="ui-jqgrid-sortable">year<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_smst_gbcd" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_smst_gbcd"
+                                                                    class="ui-jqgrid-sortable">smst_gbcd<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_course_cd" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_course_cd"
+                                                                    class="ui-jqgrid-sortable">course_cd<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_clas" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_clas"
+                                                                    class="ui-jqgrid-sortable">clas<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_copl_gbcd" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_copl_gbcd"
+                                                                    class="ui-jqgrid-sortable">copl_gbcd<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_chic_majr_sbjt" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_chic_majr_sbjt"
+                                                                    class="ui-jqgrid-sortable">chic_majr_sbjt<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_hp" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_hp"
+                                                                    class="ui-jqgrid-sortable">hp<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_course_nm" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_course_nm"
+                                                                    class="ui-jqgrid-sortable">course_nm<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_note" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_note"
+                                                                    class="ui-jqgrid-sortable">note<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_cnt_limit" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_cnt_limit"
+                                                                    class="ui-jqgrid-sortable">cnt_limit<span
+                                                                        class="s-ico" style="display:none"><span
+                                                                            sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                            <th id="GridLecture_ins_yn" role="columnheader"
+                                                                class="ui-state-default ui-th-column ui-th-ltr"
+                                                                style="width: 150px; display: none;">
+                                                                <div id="jqgh_GridLecture_ins_yn"
+                                                                    class="ui-jqgrid-sortable">ins_yn<span class="s-ico"
+                                                                        style="display:none"><span sort="asc"
+                                                                            class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span
+                                                                            sort="desc"
+                                                                            class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="ui-jqgrid-bdiv" style="height: auto; width: 1160px;">
+                                            <div style="position:relative;">
+                                                <div class="nodata active">☞ 조회 조건 선택 후 조회 버튼을 클릭하세요.</div>
+                                                <table id="GridLecture" tabindex="0" cellspacing="0" cellpadding="0"
+                                                    border="0" role="presentation" aria-multiselectable="false"
+                                                    aria-labelledby="gbox_GridLecture" class="ui-jqgrid-btable"
+                                                    style="width: 1159px;">
+                                                    <tbody>
+                                                        <tr class="jqgfirstrow" role="row" style="height:auto">
+                                                            <td role="gridcell" style="height: 0px; width: 127px;"></td>
+                                                            <td role="gridcell" style="height: 0px; width: 340px;"></td>
+                                                            <td role="gridcell" style="height: 0px; width: 127px;"></td>
+                                                            <td role="gridcell" style="height: 0px; width: 64px;"></td>
+                                                            <td role="gridcell" style="height: 0px; width: 127px;"></td>
+                                                            <td role="gridcell" style="height: 0px; width: 212px;"></td>
+                                                            <td role="gridcell" style="height: 0px; width: 127px;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                            <td role="gridcell"
+                                                                style="height:0px;width:150px;display:none;"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--여기 까지가 검색내용 수정되는 부분입니다,-->
+                                    <div class="ui-jqgrid-resize-mark" id="rs_mGridLecture">&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- tab_02 end -->
+                </div><!-- end tab -->
+                <div class="mt-20">&nbsp;</div>
+                <form name="planForm" id="planForm" method="post">
+                    <input type="hidden" name="p01">
+                    <input type="hidden" name="p02">
+                    <input type="hidden" name="p03">
+                    <input type="hidden" name="p04">
+                    <input type="hidden" name="program" value="ul0303013">
+                </form>
+                <script src="/resources/js/fn-basket.js?fake=1675340821383" type="text/javascript"></script>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        fnGridBasket();
+                        fnInitGrid();
+
+                        $('#pSearchNm').keypress(function (event) {
+                            var keycode = (event.keyCode ? event.keyCode : event.which);
+                            if (keycode == 13) {
+                                event.preventDefault();
+                                fnSearch();
+                            }
+                        });
+                        $('#btnSearch').off('click').on('click', function () {
+                            let $btn = $(this);
+                            if ($btn.hasClass('clicked')) {
+                                return;
+                            } else {
+                                $btn.addClass('clicked');
+                                fnSearch();
+                                setTimeout(function () {
+                                    $btn.removeClass('clicked');
+                                }, 500);
+                            }
+                        });
+                        $('#btnReset').off('click').on('click', function () {
+                            fnReset();
+                        });
+                    });
+
+                    function fnReset() {
+                        $("#pSosocCd").val("").prop("selected", "selected");
+                        $("#pSearchNm").val("");
+                        $("input:checkbox[name='pIsuGb']").attr("checked", false);
+                        $("input:checkbox[name='pPnt']").attr("checked", false);
+                        $("input:checkbox[name='pDay']").attr("checked", false);
+                        $("input:checkbox[name='pArea']").attr("checked", false);
+                        $("input:checkbox[name='pAbility']").attr("checked", false);
+                        //fnInitCombo('init');
+                    }
+
+                    function fnSearch() {
+                        try {
+                            $("#warMsg").html("");
+                        } catch (err) {}
+                        if ($("#pSosocCd").val() == "" &&
+                            $("#pSearchNm").val() == "" &&
+                            $("input:checkbox[name='pIsuGb']:checked").length == 0 &&
+                            $("input:checkbox[name='pPnt']:checked").length == 0 &&
+                            $("input:checkbox[name='pDay']:checked").length == 0 &&
+                            $("input:checkbox[name='pArea']:checked").length == 0 &&
+                            $("input:checkbox[name='pAbility']:checked").length == 0) {
+                            //Alert("1개 이상의 조건을 설정해 주세요.");
+                            $("#warMsg").html("1개 이상의 조건을 설정해 주세요.");
+                            return;
+                        }
+                        fnGridLecture();
+                    }
+
+                    function fnCredit(grid) {
+                        var ids = grid.getDataIDs();
+                        var pntTot = '40';
+                        var pntPre = '0';
+                        var pntSum = 0;
+                        var PNT_TOT = 0;
+                        $.each(ids, function (idx, rowId) {
+                            var rowData = grid.getRowData(rowId);
+                            pntSum += parseFloat(rowData.pnt);
+                        });
+                        PNT_TOT = parseFloat(pntTot) + parseFloat(pntPre) + parseFloat(pntSum);
+                        $("#PNT_SUM").html(pntSum);
+                        $("#PNT_TOT").html("(" + parseFloat(pntTot) + " + " + parseFloat(pntPre) + " + " + parseFloat(
+                            pntSum) + ") = " + PNT_TOT);
+                        $("#CNT").html(ids.length);
+                    }
+
+                    function fnPlan(row) {
+                        var frmData = document.planForm;
+                        frmData.p01.value = row.year;
+                        frmData.p02.value = row.smst_gbcd;
+                        frmData.p03.value = row.course_cd;
+                        frmData.p04.value = row.clas;
+                        window.open("", 'popupView');
+                        var url = "https://tis.skhu.ac.kr/api/open/program";
+                        frmData.target = 'popupView';
+                        frmData.method = "post";
+                        frmData.action = url;
+                        frmData.submit();
+                    }
+                </script>
+            </div>
+            <!-- 박스 내용 종료 -->
+        </div>
+    </main>
+</body>
+
+</html>
