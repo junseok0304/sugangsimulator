@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
+    <meta content="date=no" name="format-detection">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <title>성공회대학교 모의수강신청시스템</title>
+    <link href="./resources/css/ui.css" rel="stylesheet" type="text/css">
+    <link href="./resources/css/jqgrid.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./resources/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./resources/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="main">
+    <div class="wrap-loader hidden"><span class="loading-helper"></span>
+        <div class="loader"></div>
+        <div class="loading-text">Loading</div>
+    </div>
+    <span class="to-top" style="display: none;"></span>
+    <header>
+        <div class="wrap-header">
+            <div class="is-left" onclick="location.href='./main.html'" style="cursor:pointer;"
+                title="홈(Home)">
+                <span>모의수강신청</span>
+            </div>
+            <div class="is-right" style="display: block;">
+                <ul class="nav-menu">
+                    <li>
+                        <span class="main-menu" onclick="location.href='./sugangsinchung.html'">수강신청</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice1')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/sugangSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="main-menu" onclick="location.href='./sugangbasket.html'">수강바구니</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice2')">신청</li>
+                                <li onclick="fnMenuLoad('/basket/basketSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="main-menu" onclick="alert('현재 페이지가 제한수업탭에서 버튼클릭시 접속되는 페이지입니다.')">제한수업</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice3')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/limitSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">대체과목 재수강</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreValid?pScheGb=0214')">신청</li>
+                                <!-- <li onclick="fnMenuLoad('/core/coreNotice5')">신청</li> -->
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">수강철회</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice4')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/withdrawSelect')">결과조회</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="user-info">
+
+                    <div><span class="is-id">202314000</span><span>홍길동</span><br>
+                        <span>공학계 IT융합자율학부</span>
+                        <span>1학년</span>
+                    </div>
+                    <button type="button" class="btn-sub" id="btn" onclick="location.href='./index.html'">로그아웃</button>
+                </div>
+            </div>
+            <div class="m-menu"></div>
+        </div>
+    </header>
+    <main class="s-contents" id="s-contents">
+        <div>
+            <div class="alignC">
+                <h1 class="is-title">2023년 1학기 학부 모의제한수업</h1>
+            </div>
+            <div class="btn-area"><button type="button" class="btn-lg btn-main btnStart"
+                    onclick="alert('아직 준비중인 기능입니다!')">제한수업 시작</button></div>
+            <!-- 수강신청 안내 내용들 들어있는 박스 -->
+            <div class="intro-box">
+                <p><strong
+                        style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">학년
+                        및 학부(전공)제한으로 수강신청이 불가하거나 특별과정(부,복수 등) 신청하기 전 또는 전과를 준비하는&nbsp;학생이 타 학부(전공) 과목 수강을 희망하는 경우 아래
+                        공지사항을 참고하여 신청하시기 바랍니다.</strong><br
+                        style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                        style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;</span>
+                </p>
+                <div
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255); text-align: center;">
+                    <strong style="margin: 0px; padding: 0px; list-style: none;">-아래-</strong></div><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><strong
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(0, 0, 205);">1.
+                        신청기간 : 8월 3일(수) (10:00 ~ 17:00)</span><br style="list-style: none;"><br
+                        style="list-style: none;"><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(0, 128, 0);">2.
+                        신청방법 : 수강신청시스템(sugang.skhu.ac.kr) 로그인 &gt; 제한수업신청 &gt; 신청</span><br
+                        style="list-style: none;"><br style="list-style: none;">3. 제한수업 신청불가 과목&nbsp;</strong><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;
+                    가. 교양선택과목 전체(이수구분&nbsp;교선, 교직)- 평교 제외</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;
+                    나.&nbsp;비아메디아 채플 과목 전체</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;
+                    다. 사회봉사I 과목 등</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;
+                    라.&nbsp;</span><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255); text-decoration-line: underline;">교양과목을
+                    제외한 교과목은 첨부파일 참조</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;
+                    마. 융합자율학부 소속학생 중에서 [1-2학기 학생, 3학기 학생 중에서 전공 미신청학생]은 교양과목(이수구분: 교선, 교필, 평교) 및 전탐과목(이수구분: 전탐)만 수강할 수
+                    있으며, 전공과목(이수구분: 전선, 전필)은 수강할 수 없음</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><strong
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;&nbsp;<br
+                        style="list-style: none;">&nbsp;&nbsp;&nbsp;&nbsp; (**첨부파일&nbsp; :&nbsp;</strong><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">2022-2학기
+                    제한수업불가과목현황(2022년 7월 21일)</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><strong
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">4.
+                    유의사항</strong><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">가.제한수업
+                    신청이 불가한 과목은 수강신청 변경기간에 잔여 수강인원 내에서 선착순으로 신청하셔야 합니다.&nbsp;</span><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; background-color: rgb(255, 255, 255); color: rgb(0, 0, 205);"><strong
+                        style="margin: 0px; padding: 0px; list-style: none;">(수강변경기간: 8/29(월) 10:00 ~ 3/8(화)
+                        18:00)</strong></span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">나.
+                    제한수업 신청은&nbsp;신규 또는 대체과목을&nbsp;지정하고 신청해야 합니다. &nbsp;&nbsp;&nbsp;&nbsp;</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;
+                    (대체과목= 제한수업이 승인될 경우, 최초 시간표에서 삭제할 과목)</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><strong
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(255, 0, 0);">&nbsp;&nbsp;&nbsp;
+                        단, 교양필수는 본인이 신청한 요일, 시간내에서 지정됩니다.(담당교수, 분반 지정 불가)</span></strong><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">다.
+                    두 과목의 시간표가&nbsp;겹치는 경우 제한수업 신청이 불가 합니다.</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">라.
+                    제한수업 승인은 교무처 내규에 의거하여 처리됩니다.</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">마.
+                    담당교수 미승인, 과목별 제한인원 초과 사유로 신청이 ‘반려(승인불가)’될 수 있으니 종합정보시스템에서 신청 결과를 꼭 확인하시기 바랍니다.</span><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><strong
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(0, 0, 255);">바. 신청
+                        결과는&nbsp;</span><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(255, 0, 0);"><span
+                            style="margin: 0px; padding: 0px; list-style: none; border: none; text-decoration-line: underline;">8월
+                            9일(화) 오전 10:00</span></span><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(0, 0, 255);">부터
+                        (제한수업 결과조회)에서 조회할 수 있습니다.</span><br style="list-style: none;"><br
+                        style="list-style: none;">&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; color: rgb(0, 0, 255);">수강신청시스템
+                        – 수강관리 – 제한수업 결과조회에서 확인할 수 있습니다.</span></strong><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><strong
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">사.&nbsp;<span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; text-decoration-line: underline;">제한수업신청
+                        전&nbsp;</span><span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; text-decoration-line: underline;">신청
+                        가능한 강좌를 확인하여 주시기 바랍니다. 8월 1일 첫날 수강신청이 종료되면, 학부(전공)별로 일부 과목에 대하여 전공 및 학년 제한을&nbsp;해지하여&nbsp;운영할
+                        수&nbsp;있습니다.&nbsp;</span></strong><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><br
+                    style="font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);"><span
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255);">&nbsp;</span>
+                <div
+                    style="margin: 0px; padding: 0px; font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; list-style: none; border: none; color: rgb(102, 102, 102); background-color: rgb(255, 255, 255); text-align: center;">
+                    <span
+                        style="margin: 0px; padding: 0px; list-style: none; border: none; font-size: 14px;">2022.&nbsp;07.
+                        21.<br style="list-style: none;"><br style="list-style: none;"></span></div><span
+                    style="font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-family:  malgun gothic ,  Apple SD Gothic Neo , arial,  sans-serif ; text-align: center;">
+                    <div style="text-align: center;">교무처장</div>
+                </span>
+                <p><br></p>
+                <p></p>
+            </div>
+            <!-- 박스 내용 종료 -->
+            <div class="btn-area"><button type="button" class="btn-lg btn-main btnStart"
+                    onclick="alert('아직 준비중인 기능입니다!')">제한수업 시작</button></div>
+        </div>
+    </main>
+
+</body>
+
+</html>

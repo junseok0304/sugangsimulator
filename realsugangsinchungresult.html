@@ -31,7 +31,7 @@
             <div class="is-right" style="display: block;">
                 <ul class="nav-menu">
                     <li>
-                        <span class="main-menu" onclick="location.href='./sugangsinchung.html'">수강신청</span>
+                        <span class="main-menu" onclick="alert('현재 페이지가 수강신청탭에서 버튼클릭시 접속되는 페이지입니다.')">수강신청</span>
                         <div style="display: none;">
                             <ul>
                                 <li onclick="fnMenuLoad('/core/coreNotice1')">신청</li>
@@ -41,7 +41,7 @@
                     </li>
 
                     <li>
-                        <span class="main-menu" onclick="alert('현재 페이지가 수강바구니탭에서 버튼클릭시 접속되는 페이지입니다.')">수강바구니</span>
+                        <span class="main-menu" onclick="location.href='./sugangsinchung.html'">수강바구니</span>
                         <div style="display: none;">
                             <ul>
                                 <li onclick="fnMenuLoad('/core/coreNotice2')">신청</li>
@@ -96,7 +96,7 @@
             <!-- 수강신청 안내 내용들 들어있는 박스 -->
             <!-- 여기부터 실제 코드 -->
             <div>
-                <h1 class="is-title">2023년 1학기 학부 수강바구니 신청</h1>
+                <h1 class="is-title">2023년 1학기 학부 모의수강신청</h1>
                 <div class="sw-header">
                     <h1>기본정보</h1>
                 </div>
@@ -177,7 +177,7 @@
                     </table>
                 </div>
                 <div class="sw-header mt-20">
-                    <h1>수강바구니신청 내역 <small>【 신청과목수 : <span style="color: #f76700;" id="CNT">0</span>건 】</small></h1>
+                    <h1>수강신청 내역 <small>【 신청과목수 : <span style="color: #f76700;" id="CNT">0</span>건 】</small></h1>
                 </div>
                 <div class="wrap-content">
                     <div class="wrap-grid">
@@ -596,8 +596,8 @@
 
                                 </div>
                                 <div class="is-btn">
-                                    <button id="btnReset" onclick="location.href='./test.html'">초기화</button>
-                                    <button id="btnSearch" class="btn-sub" onclick="location.href='./test2.html'">조회</button>
+                                    <button id="btnReset" onclick="location.href='./realsugangsinchung.html'">초기화</button>
+                                    <button id="btnSearch" class="btn-sub" onclick="location.href='./realsugangsinchung2.html'">조회</button>
                                 </div>
                             </div>
                             <div id="warMsg" style="text-align:center;font-weight:bold;color:red"></div>
