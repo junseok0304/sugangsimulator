@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
+    <meta content="date=no" name="format-detection">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <title>성공회대학교 모의수강신청시스템</title>
+    <link href="./resources/css/ui.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./resources/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./resources/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="main">
+    <!-- 네브바 스크립트 -->
+    <script type="text/javascript" src="menudropdown.js"></script>
+    <!-- 네브바 스크립트 종료 -->
+    <div class="wrap-loader hidden"><span class="loading-helper"></span>
+        <div class="loader"></div>
+        <div class="loading-text">Loading</div>
+    </div>
+    <span class="to-top"></span>
+    <header>
+        <div class="wrap-header">
+            <div class="is-left" onclick="location.href='./main.html'" style="cursor:pointer;" title="홈(Home)">
+                <span style="color:red;">모의수강신청</span>
+            </div>
+            <div class="is-right">
+                <ul class="nav-menu">
+                    <!-- 여기서부터 상단 네브바 -->
+                    <div class="dropdown">
+                        <button onclick="myFunction1()" id="dropbtn1" class="dropbtn">수강신청▾</button>
+                        <div id="myDropdown1" class="dropdown-content">
+                            <a href="./sugangsinchung.html">신청</a><hr>
+                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button onclick="myFunction2(event)" id="dropbtn2" class="dropbtn">수강바구니▾</button>
+                        <div id="myDropdown2" class="dropdown-content">
+                            <a href="./sugangbasket.html">신청</a><hr>
+                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button onclick="myFunction3()" id="dropbtn3" class="dropbtn">제한수업▾</button>
+                        <div id="myDropdown3" class="dropdown-content">
+                            <a href="./sugangjehan.html">신청</a><hr>
+                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button onclick="myFunction4()" id="dropbtn4" class="dropbtn">대체과목재수강▾</button>
+                        <div id="myDropdown4" class="dropdown-content">
+                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">신청</a><hr>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button onclick="myFunction5()" id="dropbtn5" class="dropbtn">수강철회▾</button>
+                        <div id="myDropdown5" class="dropdown-content">
+                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">신청</a><hr>
+                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                        </div>
+                    </div>
+                    <!-- 네브바 종료 -->
+                </ul>
+                <div class="user-info">
+                    <div><span class="is-id">2023140000</span><span>홍길동</span><br>
+                        <span>공학계 IT융합자율학부</span>
+                        <span>1학년</span>
+                    </div>
+                    <button type="button" class="btn-sub" id="btn" onclick="location.href='./index.html'">로그아웃</button>
+                </div>
+            </div>
+            <div class="m-menu" onclick="location.href='./realsugang.html'"></div>
+        </div>
+    </header>
+    <main class="s-contents" id="s-contents">
+        <div>
+            <style>
+                .tbl-detail:hover tbody tr:hover td {
+                    background-color: #e5f0ff;
+                    border-color: #e5f0ff;
+                }
+            </style>
+            <div class="home-box mt-15">
+                <h1>성공회대학교 모의수강신청 시스템</h1>
+                <h2>2023학년도 1학기</h2>
+            </div>
+            <div class="sw-header mt-20">
+                <h1>모의수강신청 일정</h1>
+            </div>
+            <div class="wrap-content">
+                <table class="tbl-detail">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>학년</th>
+                            <th>입장 시각</th>
+                            <th>시작 시각</th>
+                            <th>종료 시각</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color:#ffffff">
+                            <td class="alignC">수강 바구니 신청 기간</td>
+                            <td class="alignC">전체</td>
+                            <td class="alignC"></td>
+                            <td class="alignC">2023-01-31(화) 10:00</td>
+                            <td class="alignC">2023-02-05(일) 23:59</td>
+                        </tr>
+
+                        <tr style="background-color:#ffe4e4">
+                            <td class="alignC">본수강(학기차별 수강신청) 기간</td>
+                            <td class="alignC">전체</td>
+                            <td class="alignC">2023-02-06(월) 09:00</td>
+                            <td class="alignC">2023-02-06(월) 10:00</td>
+                            <td class="alignC">2023-02-06(월) 17:00</td>
+                        </tr>
+
+                        <tr style="background-color:#ffffff">
+                            <td class="alignC">전체 수강 기간</td>
+                            <td class="alignC">전체</td>
+                            <td class="alignC">2023-02-07(화) 09:00</td>
+                            <td class="alignC">2023-02-07(화) 10:00</td>
+                            <td class="alignC">2023-02-07(화) 17:00</td>
+                        </tr>
+
+                        <tr style="background-color: #ffffff">
+                            <td class="alignC">제한수업 신청 기간</td>
+                            <td class="alignC">전체</td>
+                            <td class="alignC"></td>
+                            <td class="alignC">2023-02-08(수) 10:00</td>
+                            <td class="alignC">2023-02-08(수) 17:00</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div class="jconfirm jconfirm-light jconfirm-open"><div class="jconfirm-bg" style="transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1);"></div><div class="jconfirm-scrollpane"><div class="jconfirm-row"><div class="jconfirm-cell"><div class="jconfirm-holder" style="padding-top: 40px; padding-bottom: 40px;"><div class="jc-bs3-container"><div class="jc-bs3-row"><div class="jconfirm-box-container jconfirm-animated jconfirm-no-transition" style="transform: translate(0px, 0px); transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1);"><div class="jconfirm-box jconfirm-hilight- jconfirm-type-default" role="dialog" aria-labelledby="jconfirm-box79703" tabindex="-1" style="width: 320px; transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1); transition-property: all, margin;"><div class="jconfirm-closeIcon" title="닫기" style="display: block;"></div><div class="jconfirm-title-c"><span class="jconfirm-icon-c"></span><span class="jconfirm-title">알림</span></div><div class="jconfirm-content-pane no-scroll" style="transition-duration: 0.4s; transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1);"><div class="jconfirm-content" id="jconfirm-box79703"><div><i class="sw-alert-info"></i>정말로 삭제하시겠습니까?</div></div></div><div class="jconfirm-buttons"><button type="button" class="btn-main">확 인</button><button type="button" class="btn-cancel">취 소</button></div><div class="jconfirm-clear"></div></div></div></div></div></div></div></div></div></div>
+    
+</body>
+
+
+
+
+</html>

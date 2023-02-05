@@ -4322,12 +4322,12 @@ i[class^="sw-alert"].hidden {
 
 i.sw-alert-info:before {
     border: 2px solid #f23d18;
-    background-image: url(../img/contents/alert-info.png)
+    background-image: url(https://sugang.skhu.ac.kr/resources/img/contents/alert-info.png)
 }
 
 i.sw-alert-check:before {
     background-color: #296dcc;
-    background-image: url(../img/contents/alert-check.png)
+    background-image: url(https://sugang.skhu.ac.kr/resources/img/contents/alert-info.png)
 }
 
 .is-right {
