@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,9 +16,6 @@
 </head>
 
 <body class="main">
-    <!-- 네브바 스크립트 -->
-    <script type="text/javascript" src="menudropdown.js"></script>
-    <!-- 네브바 스크립트 종료 -->
     <div class="wrap-loader hidden"><span class="loading-helper"></span>
         <div class="loader"></div>
         <div class="loading-text">Loading</div>
@@ -31,47 +28,51 @@
             </div>
             <div class="is-right">
                 <ul class="nav-menu">
-                    <!-- 여기서부터 상단 네브바 -->
-                    <div class="dropdown">
-                        <button onclick="myFunction1()" id="dropbtn1" class="dropbtn">수강신청▾</button>
-                        <div id="myDropdown1" class="dropdown-content">
-                            <a href="./sugangsinchung.html">신청</a>
-                            <hr>
-                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                    <li>
+                        <span class="main-menu" onclick="location.href='./sugangsinchung.html'">수강신청</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice1')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/sugangSelect')">결과조회</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="dropdown">
-                        <button onclick="myFunction2(event)" id="dropbtn2" class="dropbtn">수강바구니▾</button>
-                        <div id="myDropdown2" class="dropdown-content">
-                            <a href="./sugangbasket.html">신청</a>
-                            <hr>
-                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                    </li>
+                    <li>
+                        <span class="main-menu" onclick="location.href='./sugangbasket.html'">수강바구니</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice2')">신청</li>
+                                <li onclick="fnMenuLoad('/basket/basketSelect')">결과조회</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="dropdown">
-                        <button onclick="myFunction3()" id="dropbtn3" class="dropbtn">제한수업▾</button>
-                        <div id="myDropdown3" class="dropdown-content">
-                            <a href="./sugangjehan.html">신청</a>
-                            <hr>
-                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                    </li>
+                    <li>
+                        <span class="main-menu" onclick="location.href='./sugangjehan.html'">제한수업</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice3')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/limitSelect')">결과조회</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="dropdown">
-                        <button onclick="myFunction4()" id="dropbtn4" class="dropbtn">대체과목재수강▾</button>
-                        <div id="myDropdown4" class="dropdown-content">
-                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">신청</a>
-                            <hr>
+                    </li>
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">대체과목 재수강</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreValid?pScheGb=0214')">신청</li>
+                                <!-- <li onclick="fnMenuLoad('/core/coreNotice5')">신청</li> -->
+                            </ul>
                         </div>
-                    </div>
-                    <div class="dropdown">
-                        <button onclick="myFunction5()" id="dropbtn5" class="dropbtn">수강철회▾</button>
-                        <div id="myDropdown5" class="dropdown-content">
-                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">신청</a>
-                            <hr>
-                            <a href="#" onclick="alert('아직 준비중인 기능입니다!')">결과조회</a>
+                    </li>
+                    <li>
+                        <span class="main-menu" onclick="alert('아직 준비중인 기능입니다.')">수강철회</span>
+                        <div style="display: none;">
+                            <ul>
+                                <li onclick="fnMenuLoad('/core/coreNotice4')">신청</li>
+                                <li onclick="fnMenuLoad('/sugang/withdrawSelect')">결과조회</li>
+                            </ul>
                         </div>
-                    </div>
-                    <!-- 네브바 종료 -->
+                    </li>
                 </ul>
                 <div class="user-info">
                     <div><span class="is-id">2023140000</span><span>홍길동</span><br>

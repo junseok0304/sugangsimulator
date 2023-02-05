@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="Cache-Control" content="no-cache">
-        <meta http-equiv="Expires" content="0">
-        <meta http-equiv="Pragma" content="no-cache">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
-        <meta content="date=no" name="format-detection">
-        <meta content="telephone=no" name="format-detection">
-        <meta content="address=no" name="format-detection">
-        <title>성공회대 모의수강신청시스템</title>
-        <link rel="stylesheet" href="./resources/css/login.css" type="text/css">
-        <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/resources/img/favicon.ico" type="image/x-icon">
-    </head>
-    <body class="login">
-        <div class="wrap-loader" style="display:none;"><span class="loading-helper"></span><div class="loader"></div><div class="loading-text">Loading</div></div>
-        <div class="login-container">
-            <main>
-                <div class="login-box">	
-                    <form name="loginForm" id="loginForm" method="post" autocomplete="off">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
+    <meta content="date=no" name="format-detection">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <title>성공회대 모의수강신청시스템</title>
+    <link rel="stylesheet" href="./resources/css/login.css" type="text/css">
+    <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/resources/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="login">
+    <div class="wrap-loader" style="display:none;"><span class="loading-helper"></span>
+        <div class="loader"></div>
+        <div class="loading-text">Loading</div>
+    </div>
+    <div class="login-container">
+        <main>
+            <div class="login-box">
+                <form name="loginForm" id="loginForm" method="post" autocomplete="off">
                     <div class="login-logo" title="성공회대학교"></div>
-                    <h1>"모의" 수강신청시스템 로그인</h1><h2 style="color: red;">모의 사이트라 그냥 로그인 누르시면 됩니다.</h2>
+                    <h1>"모의" 수강신청시스템 로그인</h1>
+                    <h2 style="color: red;">모의 사이트라 그냥 로그인 누르시면 됩니다.</h2>
                     <label>아이디</label>
                     <input type="text" id="txtUserID" name="txtUserID" placeholder="아이디를 입력하세요(아이디는 학번입니다.)">
                     <label>패스워드</label>
                     <input type="password" id="txtPwd" name="txtPwd" placeholder="패스워드를 입력하세요">
-                    <button type="button" class="btn-login" id="btn-login" onclick="location.href='./test.html'">로그인</button>
+                    <button type="button" class="btn-login" id="btn-login"
+                        onclick="location.href='./main.html'">로그인</button>
                     <div class="login-link">
                         <a href="./pwreset.html">비밀번호 초기화</a>
                     </div>
-                    </form>
-                </div>
-            </main>
-            <footer>Modified Copyright ⓒ SungGongHoe Univ. All rights reserved.</footer>
-        </div>	
-    </body>
+                </form>
+            </div>
+        </main>
+        <footer>Modified Copyright ⓒ SungGongHoe Univ. All rights reserved.</footer>
+    </div>
+</body>
+
 </html>
