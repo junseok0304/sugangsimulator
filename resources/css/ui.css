@@ -701,7 +701,7 @@ select {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 20px 2px 5px;
-    background-image: url(../img/contents/bg-select.png);
+    background-image: url(https://sugang.skhu.ac.kr/resources/img/contents/bg-select.png);
     background-repeat: no-repeat;
     background-position: right 8px top 50%;
     background-color: #fff
@@ -4327,7 +4327,7 @@ i.sw-alert-info:before {
 
 i.sw-alert-check:before {
     background-color: #296dcc;
-    background-image: url(https://sugang.skhu.ac.kr/resources/img/contents/alert-info.png)
+    background-image: url(https://sugang.skhu.ac.kr/resources/img/contents/alert-check.png)
 }
 
 .is-right {
@@ -4401,7 +4401,7 @@ table.dataTable .label-type+* {
     left: 0;
     width: 14px;
     height: 14px;
-    background: url(../img/contents/icon-info.png) no-repeat 0 0
+    background: url(https://sugang.skhu.ac.kr/resources/img/contents/icon-info.png) no-repeat 0 0
 }
 
 .info-txt.is-blue {
@@ -4477,7 +4477,7 @@ table.dataTable .label-type+* {
 .list-icon>li {
     margin-bottom: 10px;
     padding: 0 0 0 12px;
-    background: url(../img/contents/bullet.png) no-repeat 0 7px;
+    background: url(https://sugang.skhu.ac.kr/resources/img/contents/bullet.png) no-repeat 0 7px;
     font-size: 13px;
     line-height: 22px;
     -webkit-box-sizing: border-box;
